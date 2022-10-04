@@ -1,7 +1,7 @@
 import React from 'react'
 import emptyTickerShow from '/emptyTickerShow.png'
 import tickerFilledShow from '/tickerFilledShow.png'
-import tickersShow from '/tickersShow.png'
+import tickersShow from '/tickersSHOW.png'
 
 const Docs = () => {
     return (
