@@ -88,6 +88,7 @@ const Ticker = () => {
         }
     }
 
+    /** STOCK DATA **/
     useEffect(() => {
         const options = {
             method: 'GET',
@@ -99,7 +100,7 @@ const Ticker = () => {
                 lang: 'en'
             },
             headers: {
-                'X-RapidAPI-Key': `${import.meta.env.VITE_GOOGLE_URL}`,
+                'X-RapidAPI-Key': `${import.meta.env.VITE_GOOGLE_UR}`,
                 'X-RapidAPI-Host': 'trading-view.p.rapidapi.com'
             }
         };
@@ -111,8 +112,7 @@ const Ticker = () => {
             console.error(error);
         });
 
-    }, [ticker])
-
+    }, [])
 
 
     /********************************************************************************************************/
@@ -179,12 +179,18 @@ const Ticker = () => {
     }, [strikeProfitArray, invested, wheelProfit, strikeProfit])
 
     useEffect(() => {
+        console.log('AQUII')
+        console.log(stockPrice)
         const algo = () => {
             if (strikeProfitArray.length > 0) {
                 const sharesOwned = strikeProfitArray.reduce((result, number) => result + number)
                 if (sharesOwned != 0) {
                     return sharesOwned * originalCostBasis
-                } else {
+                }
+                if (stockPrice === 0) {
+                    return originalCostBasis * totalContracts * 100
+                }
+                else {
                     return stockPrice * totalContracts * 100
                 }
             }
@@ -311,7 +317,7 @@ const Ticker = () => {
                 <div>
                     <div className='flex flex-col items-center lg:hidden'>
                         <h1 className='font-bold text-md'>Stock Price</h1>
-                        <p className='text-xl'>{stockPrice}</p>
+                        <p className='text-xl'>{stockPrice.toFixed()}</p>
                     </div>
                     <section className='w-full h-32 px-5 grid grid-cols-2 lg:grid-cols-9 gap-3 p-5'>
                         <div className='hidden lg:flex flex-col items-center gap-3'>
