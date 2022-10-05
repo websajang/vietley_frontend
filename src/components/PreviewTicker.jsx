@@ -8,7 +8,7 @@ const PreviewTicker = ({ tickerName }) => {
         <Link
             to={`${_id}`}
         >
-            <div className='mt-10 shadow-lg p-5 text-center text-3xl font-bold rounded-xl w-full h-50 flex flex-col-reverse bg-gradient-to-b from-teal-100 to-teal-500'>
+            <div className='mt-5 w-full  flex flex-col-reverse hover:bg-teal-500 rounded-md p-2'>
                 <div className=''>
                     {ticker}
                 </div>
