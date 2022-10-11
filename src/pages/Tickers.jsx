@@ -10,19 +10,19 @@ const Tickers = () => {
     const { tickers } = useTickers();
 
     return (
-        <div className="text-center font-bold lg:text-start lg:p-10">
+        <div className="text-center font-bold lg:text-start lg:p-10 h-screen">
 
-            <div className="lg:grid grid-cols-2">
-                <div>
-                    <h3 className="text-5xl">Manage your options easier.</h3>
-                    <h3 className="text-5xl">Keep track of your gains.</h3>
-                    <h3 className="text-5xl">All in one application.</h3>
+            <div className="lg:grid grid-cols-2 h-screen">
+                <div className="h-3/4">
+                    <h3 className="text-5xl textanimation">Manage your options easier.</h3>
+                    <h3 className="text-5xl textanimation">Keep track of your gains.</h3>
+                    <h3 className="text-5xl textanimation">All in one application.</h3>
 
                     <p className="mt-10 text-xl">WMT220724C00132000 <span className="text-green-600 font-bold">(+2756%)</span></p>
                     <p className="text-xl">WMT220824C00256000 <span className="text-green-600 font-bold">(+32658%)</span></p>
                 </div>
                 <div>
-                    <section className="p-5 mx-5 border-2 border-slate-300 rounded-xl lg:gap-10">
+                    <section className="p-5 mx-5 border-2 border-slate-300 rounded-xl lg:gap-10 h-5/6">
                         <h2 className="text-center text-3xl">Tickers</h2>
                         <div className="flex flex-row justify-between border-b-2 border-slate-300">
                             <h3 className="mt-5">Name: {auth.name}</h3>

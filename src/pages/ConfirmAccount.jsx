@@ -54,7 +54,7 @@ const ConfirmAccount = () => {
 
                 {/** If the account is confirmed set a button to go login **/}
                 {confirmedAccount && (<Link to="/"
-                    className='block text-center my-5'
+                    className='block text-center my-5 '
                 >Go to Login</Link>)
                 }
             </div>

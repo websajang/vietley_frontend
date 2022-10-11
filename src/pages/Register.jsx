@@ -164,7 +164,7 @@ const Register = () => {
                 <input
                     type="submit"
                     value="Create Account"
-                    className="w-full p-3 font-bold rounded hover:cursor-pointer mb-5"
+                    className="w-full p-3 font-bold rounded hover:cursor-pointer mb-5 hover:bg-teal-500 transition ease-in-out"
                 />
 
                 {/** Alert message renderer if needed **/}

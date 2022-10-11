@@ -1,6 +1,7 @@
 import { Outlet, Navigate } from 'react-router-dom'
 import useAuth from '../hooks/useAuth'
 import Header from '../components/Header'
+import Loader from '../components/Loader'
 
 const ProtectedRoute = () => {
 
@@ -8,7 +9,7 @@ const ProtectedRoute = () => {
 
     /** Blocking the next lines of code here until it has _id **/
 
-    if (loading) return 'Loading...'
+    if (loading) return <Loader />
 
     /** Here we can also setup the UI layout for the private area **/
     return (

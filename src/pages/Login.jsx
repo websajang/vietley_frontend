@@ -55,14 +55,7 @@ const Login = () => {
 
     return (
 
-        <div>
-            <div className='border-2 border-red-500 rounded-md p-5 mb-10'>This is a private beta. For the moment to log in and try the APP, you have register
-                and send an email to websajang@gmail.com and ask for the token url to activate your account.
-                <br />
-                The APP is on development so dont use here the same password you use for your email or any other
-                account. Even though it will be hashed before entering the database.
-            </div>
-
+        <div className='min-h-screen'>
             {/** Title of the form **/}
             <img src={logo} width={250} height={250} alt="Logo" />
             <p>BETA v2.2</p>
@@ -72,7 +65,7 @@ const Login = () => {
             <form
 
                 onSubmit={handleSubmit}
-                className="my-10 shadow rounded-lg p-10">
+                className="shadow rounded-lg p-10">
 
                 {/** Input for the email **/}
                 <div className="my-5">
@@ -112,7 +105,7 @@ const Login = () => {
                 <input
                     type="submit"
                     value="Login"
-                    className="w-full p-3 font-bold rounded hover:cursor-pointer mb-5"
+                    className="w-full p-3 font-bold rounded hover:cursor-pointer hover:bg-teal-500 transition ease-in-out mb-5"
                 />
             </form>
 

@@ -99,7 +99,7 @@ const NewPassword = () => {
                     <input
                         type="submit"
                         value="Create New Password"
-                        className="w-full p-3 font-bold rounded hover:cursor-pointer mb-5"
+                        className="w-full p-3 font-bold rounded hover:cursor-pointer mb-5 hover:bg-teal-500 transition ease-in-out"
                     />
 
                 </form>)}
