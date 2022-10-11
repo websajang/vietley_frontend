@@ -127,8 +127,8 @@ const Entry = ({ entry }) => {
                 {closingDate ? timeDifferenceClosedOption(opened, closingDate) : timeDifferenceOpenedOption(opened)}
             </td>
             <td>
-                <button className="text-blue-500" onClick={() => handleModalEditEntry(entry)}>Edit</button>
-                <button className="text-red-500 ml-3" onClick={() => handleModalDeleteEntry(entry)}>Delete</button>
+                <button className="text-slate-500 hover:text-black hover:bg-teal-500 rounded-md p-1" onClick={() => handleModalEditEntry(entry)}>Edit</button>
+                <button className="text-slate-500 hover:text-black hover:bg-teal-500 rounded-md p-1 ml-3" onClick={() => handleModalDeleteEntry(entry)}>Delete</button>
             </td>
         </tr >
     )

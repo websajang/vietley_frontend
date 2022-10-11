@@ -29,18 +29,18 @@ const Header = () => {
             {/*--------------------------- */}
             {/*---------- MENU------------ */}
             <div className={active ? "w-full flex-grow lg:flex lg:items-center lg:text-right lg:w-auto" : "hidden w-full flex-grow lg:flex lg:items-center lg:text-right lg:w-auto"}>
-                <div className="text-lg lg:flex-grow">
+                <div className="text-xl lg:flex-grow">
                     <Link
                         to="/tickers"
-                        className='block mt-4 lg:inline-block hover:text-orange-600 lg:mt-0 mr-4'
+                        className='block mt-4 lg:inline-block hover:bg-teal-500 rounded-xl p-2 lg:mt-0 lg:w-40 lg:text-center'
                     >Tickers</Link>
                     <Link
                         to="/tickers/docs"
-                        className="block mt-4 lg:inline-block lg:mt-0  hover:text-orange-600 mr-4"
+                        className="block mt-4 lg:inline-block lg:mt-0  hover:bg-teal-500 rounded-xl p-2 lg:w-40 lg:text-center"
                     >Docs</Link>
                     <Link
                         to="/tickers/updates"
-                        className='block mt-4 lg:inline-block hover:text-orange-600 lg:mt-0 mr-4'
+                        className='block mt-4 lg:inline-block hover:bg-teal-500 rounded-xl p-2 lg:w-40 lg:text-center lg:mt-0'
                     >Updates</Link>
                 </div>
 

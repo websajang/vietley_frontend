@@ -6,7 +6,7 @@
 
     .textanimation {
         animation: text 3s linear;
-        animation-duration: 0.2s;
+        animation-duration: 0.1s;
     }
 
     @keyframes text {
@@ -23,6 +23,7 @@
 
     .animatedballs7 {
         animation: movementanimation 15s linear infinite;
+        animation-fill-mode: both;
         animation-duration: calc(125s / 13);
     }
 
@@ -38,6 +39,7 @@
 
     .animatedballs8 {
         animation: movementanimation 15s linear infinite;
+        animation-fill-mode: both;
         animation-duration: calc(125s / 11);
     }
 
@@ -53,6 +55,7 @@
 
     .animatedballs9 {
         animation: movementanimation 15s linear infinite;
+        animation-fill-mode: both;
         animation-duration: calc(125s / 9);
         animation-delay: 1s;
     }
@@ -69,6 +72,7 @@
 
     .animatedballs10 {
         animation: movementanimation 15s linear infinite;
+        animation-fill-mode: both;
         animation-duration: calc(125s / 12);
         animation-delay: 1s;
     }
@@ -85,6 +89,7 @@
 
     .animatedballs11 {
         animation: movementanimation 15s linear infinite;
+        animation-fill-mode: both;
         animation-duration: calc(125s / 10);
         animation-delay: 1s;
     }
@@ -101,6 +106,7 @@
 
     .animatedballs12 {
         animation: movementanimation 15s linear infinite;
+        animation-fill-mode: both;
         animation-duration: calc(125s / 8);
         animation-delay: 1s;
     }
@@ -117,6 +123,7 @@
 
     .animatedballs13 {
         animation: movementanimation 15s linear infinite;
+        animation-fill-mode: both;
         animation-duration: calc(125s / 7);
         animation-delay: 1s;
     }
@@ -133,6 +140,7 @@
 
     .animatedballs14 {
         animation: movementanimation 15s linear infinite;
+        animation-fill-mode: both;
         animation-duration: calc(125s / 6);
         animation-delay: 1s;
     }
@@ -149,6 +157,7 @@
 
     .animatedballs15 {
         animation: movementanimation 15s linear infinite;
+        animation-fill-mode: both;
         animation-duration: calc(125s / 5);
         animation-delay: 1s;
     }

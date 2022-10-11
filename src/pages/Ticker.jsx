@@ -10,6 +10,7 @@ import StockEntry from '../components/StockEntry'
 import ModalDeleteStock from '../components/ModalDeleteStock'
 import Loader from '../components/Loader'
 import axios from 'axios'
+import Chart from '../components/Chart'
 
 const Ticker = () => {
 
@@ -253,31 +254,7 @@ const Ticker = () => {
         loading ? <Loader /> : (
             <>
                 <div className='lg:flex lg:justify-between lg:p-10'>
-                    <h1 className='text-center lg:text-start font-bold text-3xl'>{ticker.ticker}</h1>
-                    {/** Add entries **/}
-                    <div className='flex gap-16 mt-5 lg:mt-0'>
-                        <button
-                            onClick={handleModalEntry}
-                            className='flex gap-2 place-items-center'
-                            type='button'
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                            </svg>
-
-                            Add option entry</button>
-
-                        <button
-                            onClick={handleModalStock}
-                            className='flex gap-2 place-items-center'
-                            type='button'
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                            </svg>
-
-                            Add stock entry</button>
-                    </div>
+                    <h1 className='text-center lg:text-start font-bold text-5xl'>{ticker.ticker}</h1>
 
                     {/** BUTTONS **/}
                     <div className='hidden lg:flex gap-5'>
@@ -314,7 +291,7 @@ const Ticker = () => {
                     <ModalDeleteStock />
                 </div>
 
-                <div>
+                <div className='border-2 border-slate-300 rounded-xl shadow-md bg-teal-50'>
                     <div className='flex flex-col items-center lg:hidden'>
                         <h1 className='font-bold text-md'>Stock Price</h1>
                         <p className='text-xl'>{stockPrice.toFixed()}</p>
@@ -379,75 +356,132 @@ const Ticker = () => {
                     {/** Overall Info **/}
 
                     {/** Entries **/}
-                    <section className='col-span-4 p-5'>
+                    <section className='col-span-4 p-5 border-2 border-slate-300 rounded-xl shadow-md mt-5 bg-teal-50'>
                         {/**********Ver im portant to put the '?' after entries because the entries object at the beggining is going to be empty 
                              * and dont have any entries and we gonna have an error because this javascript may run before the entries object is filled.
                              * With ? it is going to start running when and if entries are filled. */}
                         {ticker.entries?.length ?
-                            (<table className='table-auto w-full'>
-                                <thead>
-                                    <tr className='text-sm'>
-                                        <th>Opened</th>
-                                        <th>Call/Put</th>
-                                        <th>Buy/Sell</th>
-                                        <th>Expiration</th>
-                                        <th>Strike</th>
-                                        <th>Qty</th>
-                                        <th>Price</th>
-                                        <th>Credit</th>
-                                        <th>Info</th>
-                                        <th>Date Closed</th>
-                                        <th>Closing Cost</th>
-                                        <th>Debit</th>
-                                        <th>Profit</th>
-                                        <th>Days Held</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {ticker.entries?.map(entry => (
-                                        <Entry
-                                            key={entry._id}
-                                            entry={entry}
-                                            setModalDelete={setModalDelete}
-                                            modalDelete={modalDelete}
-                                        />
-                                    ))}
-                                </tbody>
-                            </table>
-                            ) :
-                            null}
+                            (
+                                <div>
+                                    <table className='table-auto w-full'>
+                                        <thead>
+                                            <tr className='text-sm border-b-2 '>
+                                                <th>Opened</th>
+                                                <th>Call/Put</th>
+                                                <th>Buy/Sell</th>
+                                                <th>Expiration</th>
+                                                <th>Strike</th>
+                                                <th>Qty</th>
+                                                <th>Price</th>
+                                                <th>Credit</th>
+                                                <th>Info</th>
+                                                <th>Date Closed</th>
+                                                <th>Closing Cost</th>
+                                                <th>Debit</th>
+                                                <th>Profit</th>
+                                                <th>Days Held</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {ticker.entries?.map(entry => (
+                                                <Entry
+                                                    key={entry._id}
+                                                    entry={entry}
+                                                    setModalDelete={setModalDelete}
+                                                    modalDelete={modalDelete}
+                                                />
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                    <div className='flex flex-row justify-center mt-5'>
+                                        <button
+                                            onClick={handleModalEntry}
+                                            className='flex gap-2 place-items-center rounded-md p-2'
+                                            type='button'
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                            </svg>
+
+                                            Add option entry</button>
+                                    </div>
+                                </div>) :
+                            (<div className='flex flex-row justify-center mt-5'>
+                                <button
+                                    onClick={handleModalEntry}
+                                    className='flex gap-2 place-items-center rounded-md p-2'
+                                    type='button'
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                    </svg>
+
+                                    Add option entry</button>
+                            </div>)}
 
                     </section>
                     {/** Stock info **/}
-                    <section className='col-span-2 p-5'>
+                    <section className='col-span-2 p-5 border-2 border-slate-300 rounded-xl shadow-md mt-5 bg-teal-50'>
                         {ticker.stockEntries?.length ? (
-                            <table className='table-auto w-full'>
-                                <thead>
-                                    <tr className='text-sm'>
-                                        <th>Date</th>
-                                        <th>Info</th>
-                                        <th>Buy/Sell</th>
-                                        <th>Shares</th>
-                                        <th>Cost</th>
-                                        <th>Invested</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {ticker.stockEntries?.map(stockEntry => (
-                                        <StockEntry
-                                            key={stockEntry._id}
-                                            stockEntry={stockEntry}
-                                        />
-                                    ))}
-                                </tbody>
-                            </table>
-                        ) : null}
+                            <div>
+                                <table className='table-auto w-full'>
+                                    <thead>
+                                        <tr className='text-sm border-b-2'>
+                                            <th>Date</th>
+                                            <th>Info</th>
+                                            <th>Buy/Sell</th>
+                                            <th>Shares</th>
+                                            <th>Cost</th>
+                                            <th>Invested</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {ticker.stockEntries?.map(stockEntry => (
+                                            <StockEntry
+                                                key={stockEntry._id}
+                                                stockEntry={stockEntry}
+                                            />
+                                        ))}
+                                    </tbody>
+                                </table>
+                                <div className='flex flex-row justify-center mt-5'>
+                                    <button
+                                        onClick={handleModalStock}
+                                        className='flex gap-2 place-items-center rounded-md p-2'
+                                        type='button'
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                        </svg>
+
+                                        Add stock entry</button>
+                                </div>
+                            </div>) : (
+                            <div className='flex flex-row justify-center mt-5'>
+                                <button
+                                    onClick={handleModalStock}
+                                    className='flex gap-2 place-items-center rounded-md p-2'
+                                    type='button'
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                    </svg>
+
+                                    Add stock entry</button>
+                            </div>
+                        )}
                     </section>
 
 
                 </div>
+
+
+                {/** Chart **/}
+                <section className='p-5 border-2 border-slate-300 rounded-xl shadow-md mt-5 bg-teal-50'>
+                    <Chart />
+                </section>
 
             </>
 

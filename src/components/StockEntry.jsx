@@ -73,8 +73,8 @@ const StockEntry = ({ stockEntry, }) => {
                 {verifyInvested(buyOrSell, shares, cost).toFixed(2)}
             </td>
             <td>
-                <button className="text-blue-500" onClick={() => handleModalEditStock(stockEntry)}>Edit</button>
-                <button className="text-red-500 ml-3" onClick={() => handleModalDeleteStock(stockEntry)}>Delete</button>
+                <button className="text-slate-500 hover:text-black hover:bg-teal-500 rounded-md p-1" onClick={() => handleModalEditStock(stockEntry)}>Edit</button>
+                <button className="text-slate-500 hover:text-black hover:bg-teal-500 rounded-md p-1 ml-3" onClick={() => handleModalDeleteStock(stockEntry)}>Delete</button>
             </td>
         </tr >
     )

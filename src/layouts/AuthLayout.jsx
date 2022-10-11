@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 const AuthLayout = () => {
     return (
 
-        <main className='container relative overflow-hidden mx-auto lg:grid lg:grid-cols-8 min-h-screen'>
+        <main className='container relative overflow-hidden mx-auto lg:grid lg:grid-cols-8 min-h-screen bg-white'>
 
             <div className='col-span-2'>
                 <div className='hidden relative lg:flex lg:justify-between'>

@@ -22,7 +22,7 @@ const Tickers = () => {
                     <p className="text-xl">WMT220824C00256000 <span className="text-green-600 font-bold">(+32658%)</span></p>
                 </div>
                 <div>
-                    <section className="p-5 mx-5 border-2 border-slate-300 rounded-xl lg:gap-10 h-5/6">
+                    <section className="p-5 mx-5 border-2 border-slate-300 rounded-xl lg:gap-10 h-5/6 bg-teal-50">
                         <h2 className="text-center text-3xl">Tickers</h2>
                         <div className="flex flex-row justify-between border-b-2 border-slate-300">
                             <h3 className="mt-5">Name: {auth.name}</h3>
