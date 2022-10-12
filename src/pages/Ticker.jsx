@@ -254,7 +254,7 @@ const Ticker = () => {
         loading ? <Loader /> : (
             <>
                 <div className='lg:flex lg:justify-between lg:p-10'>
-                    <h1 className='text-center lg:text-start font-bold text-5xl'>{ticker.ticker}</h1>
+                    <h1 className='text-center lg:text-start font-bold text-5xl mb-3'>{ticker.ticker}</h1>
 
                     {/** BUTTONS **/}
                     <div className='hidden lg:flex gap-5'>
@@ -291,12 +291,12 @@ const Ticker = () => {
                     <ModalDeleteStock />
                 </div>
 
-                <div className='border-2 border-slate-300 rounded-xl shadow-md bg-teal-50'>
+                <div className='border-2 border-slate-300 rounded-xl shadow-md bg-teal-50 h-fit'>
                     <div className='flex flex-col items-center lg:hidden'>
                         <h1 className='font-bold text-md'>Stock Price</h1>
                         <p className='text-xl'>{stockPrice.toFixed()}</p>
                     </div>
-                    <section className='w-full h-32 px-5 grid grid-cols-2 lg:grid-cols-9 gap-3 p-5'>
+                    <section className='w-full px-5 grid grid-cols-2 lg:grid-cols-9 gap-3 p-5 h-fit'>
                         <div className='hidden lg:flex flex-col items-center gap-3'>
                             <h1 className='font-bold text-2xl text-md'>Stock Price</h1>
                             <p className='text-xl'>{stockPrice}</p>
@@ -352,11 +352,10 @@ const Ticker = () => {
                     </section>
                 </div>
 
-                <div className='hidden lg:grid grid-cols-6 gap-3'>
-                    {/** Overall Info **/}
+                <div className='lg:grid grid-cols-6 gap-3 h-fit'>
 
                     {/** Entries **/}
-                    <section className='col-span-4 p-5 border-2 border-slate-300 rounded-xl shadow-md mt-5 bg-teal-50'>
+                    <section className='col-span-4 p-5 border-2 border-slate-300 rounded-xl shadow-md mt-5 bg-teal-50 overflow-auto'>
                         {/**********Ver im portant to put the '?' after entries because the entries object at the beggining is going to be empty 
                              * and dont have any entries and we gonna have an error because this javascript may run before the entries object is filled.
                              * With ? it is going to start running when and if entries are filled. */}
@@ -422,7 +421,7 @@ const Ticker = () => {
 
                     </section>
                     {/** Stock info **/}
-                    <section className='col-span-2 p-5 border-2 border-slate-300 rounded-xl shadow-md mt-5 bg-teal-50'>
+                    <section className='col-span-2 p-5 border-2 border-slate-300 rounded-xl shadow-md mt-5 bg-teal-50 h-fit overflow-auto'>
                         {ticker.stockEntries?.length ? (
                             <div>
                                 <table className='table-auto w-full'>
