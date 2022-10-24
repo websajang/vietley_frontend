@@ -46,10 +46,10 @@ const ConfirmAccount = () => {
             {/** Title **/}
             <img src={logo} width={250} height={250} alt="Logo" />
             <p>BETA v2.2</p>
-            <h1 className='text-5xl font-bold text-center'>Confirm Your<span className='text-teal-500'>Account</span></h1>
+            <h1 className='text-5xl font-bold text-center'>Confirm Your{' '}<span className='text-teal-500'>Account</span></h1>
 
             {/** Confirmation message **/}
-            <div>
+            <div className="mt-10">
                 {msg && <Alert alert={alert} />}
 
                 {/** If the account is confirmed set a button to go login **/}

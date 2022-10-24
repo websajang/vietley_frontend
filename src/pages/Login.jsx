@@ -43,10 +43,7 @@ const Login = () => {
             setAuth(data)
             navigate('/tickers')
         } catch (error) {
-            setAlert({
-                msg: error.response.data.msg,
-                error: true
-            })
+            console.log(error)
         }
     }
 

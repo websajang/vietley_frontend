@@ -8,6 +8,12 @@ const TickersContext = createContext();
 
 const TickersProvider = ({ children }) => {
 
+
+    /*******************************Charts Data******************************************/
+    const [creditsDates, setCreditsDates] = useState([])
+    const [debitsDates, setDebitsDates] = useState([])
+    /************************************************************************************/
+
     /********************************************************************************************************/
     /**********************************GENERAL INFORMATION OF THE TICKER*************************************/
     /********************************************************************************************************/
@@ -256,6 +262,9 @@ const TickersProvider = ({ children }) => {
             setTotalContracts(0)
             setCurrentStrike(0)
 
+            setCreditsDates([])
+            setDebitsDates([])
+
             setTicker(data)
         } catch (error) {
             console.log(error)
@@ -431,6 +440,9 @@ const TickersProvider = ({ children }) => {
             setTotalContracts(0)
             setCurrentStrike(0)
 
+            setCreditsDates([])
+            setDebitsDates([])
+
             setTicker(tickerUpdated)
 
         } catch (error) {
@@ -509,6 +521,9 @@ const TickersProvider = ({ children }) => {
             setTotalContracts(0)
             setCurrentStrike(0)
 
+            setCreditsDates([])
+            setDebitsDates([])
+
             setTicker(updatedTicker)
 
             setModalEntriesForm(false)
@@ -582,6 +597,9 @@ const TickersProvider = ({ children }) => {
 
             setTotalContracts(0)
             setCurrentStrike(0)
+
+            setCreditsDates([])
+            setDebitsDates([])
 
             setTicker(updatedTicker)
 
@@ -679,6 +697,9 @@ const TickersProvider = ({ children }) => {
             setTotalContracts(0)
             setCurrentStrike(0)
 
+            setCreditsDates([])
+            setDebitsDates([])
+
             setTicker(tickerUpdated)
 
         } catch (error) {
@@ -759,6 +780,9 @@ const TickersProvider = ({ children }) => {
             setTotalContracts(0)
             setCurrentStrike(0)
 
+            setCreditsDates([])
+            setDebitsDates([])
+
             setTicker(updatedTicker)
 
         } catch (error) {
@@ -829,6 +853,9 @@ const TickersProvider = ({ children }) => {
 
             setTotalContracts(0)
             setCurrentStrike(0)
+
+            setCreditsDates([])
+            setDebitsDates([])
 
             setTicker(updatedTicker)
             setModalDeleteStock(false)
@@ -941,7 +968,11 @@ const TickersProvider = ({ children }) => {
                 exercisedProfitPercent,
                 setAdjustedCostBasis,
                 adjustedCostBasis,
-                setStockPrice
+                setStockPrice,
+                setCreditsDates,
+                setDebitsDates,
+                creditsDates,
+                debitsDates,
             }}
         >{children}
         </TickersContext.Provider>

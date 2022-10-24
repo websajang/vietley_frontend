@@ -11,6 +11,7 @@ import ModalDeleteStock from '../components/ModalDeleteStock'
 import Loader from '../components/Loader'
 import axios from 'axios'
 import Chart from '../components/Chart'
+import DebitsChart from '../components/DebitsChart'
 
 const Ticker = () => {
 
@@ -68,7 +69,9 @@ const Ticker = () => {
         exercisedProfitPercent,
         setAdjustedCostBasis,
         adjustedCostBasis,
-        setStockPrice
+        setStockPrice,
+        creditsDates,
+        debitsDates,
     } = useTickers()
 
     const [modal, setModal] = useState(false)
@@ -180,8 +183,6 @@ const Ticker = () => {
     }, [strikeProfitArray, invested, wheelProfit, strikeProfit])
 
     useEffect(() => {
-        console.log('AQUII')
-        console.log(stockPrice)
         const algo = () => {
             if (strikeProfitArray.length > 0) {
                 const sharesOwned = strikeProfitArray.reduce((result, number) => result + number)
@@ -218,9 +219,6 @@ const Ticker = () => {
 
     useEffect(() => {
         setWheelProfitPercent(wheelProfit / investedValue * 100)
-
-        console.log(wheelProfit)
-        console.log(investedValue)
     }, [wheelProfit, investedValue])
 
 
@@ -254,12 +252,11 @@ const Ticker = () => {
         loading ? <Loader /> : (
             <>
                 <div className='lg:flex lg:justify-between lg:p-10'>
-                    <h1 className='text-center lg:text-start font-bold text-5xl mb-3'>{ticker.ticker}</h1>
 
                     {/** BUTTONS **/}
                     <div className='hidden lg:flex gap-5'>
                         {/** Edit button **/}
-                        <button className='flex place-items-center text-gray-400 hover:text-black'>
+                        <button className='flex place-items-center hover:text-black'>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                             </svg>
@@ -270,7 +267,7 @@ const Ticker = () => {
                         </button>
 
                         {/** Delete button **/}
-                        <div className='flex place-items-center text-gray-400 hover:text-black'>
+                        <div className='flex place-items-center hover:text-black'>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
                             </svg>
@@ -291,21 +288,17 @@ const Ticker = () => {
                     <ModalDeleteStock />
                 </div>
 
-                <div className='border-2 border-slate-300 rounded-xl shadow-md bg-teal-50 h-fit'>
-                    <div className='flex flex-col items-center lg:hidden'>
-                        <h1 className='font-bold text-md'>Stock Price</h1>
-                        <p className='text-xl'>{stockPrice.toFixed()}</p>
-                    </div>
+                <div className='h-fit bg-black text-white rounded-xl'>
                     <section className='w-full px-5 grid grid-cols-2 lg:grid-cols-9 gap-3 p-5 h-fit'>
                         <div className='hidden lg:flex flex-col items-center gap-3'>
-                            <h1 className='font-bold text-2xl text-md'>Stock Price</h1>
-                            <p className='text-xl'>{stockPrice}</p>
+                            <h1 className='font-bold text-2xl text-md'>Stock</h1>
+                            <p className='text-xl'>{ticker.ticker}</p>
                         </div>
                         <div className='flex flex-col items-center'>
                             <h1 className='font-bold text-md'>Investment</h1>
                             <p>{`$${avoidNaN(investedValue)}`}</p>
                             <h1 className='font-bold text-md'>Current Value</h1>
-                            <p>{`$${currentValue.toFixed(2)}`}</p>
+                            <p>-</p>
                         </div>
                         <div className='flex flex-col items-center'>
                             <h1 className='font-bold text-md'>Orig. Cost Basis</h1>
@@ -352,10 +345,11 @@ const Ticker = () => {
                     </section>
                 </div>
 
+
                 <div className='lg:grid grid-cols-6 gap-3 h-fit'>
 
                     {/** Entries **/}
-                    <section className='col-span-4 p-5 border-2 border-slate-300 rounded-xl shadow-md mt-5 bg-teal-50 overflow-auto'>
+                    <section className='col-span-4 p-5 mt-5 overflow-auto'>
                         {/**********Ver im portant to put the '?' after entries because the entries object at the beggining is going to be empty 
                              * and dont have any entries and we gonna have an error because this javascript may run before the entries object is filled.
                              * With ? it is going to start running when and if entries are filled. */}
@@ -421,7 +415,7 @@ const Ticker = () => {
 
                     </section>
                     {/** Stock info **/}
-                    <section className='col-span-2 p-5 border-2 border-slate-300 rounded-xl shadow-md mt-5 bg-teal-50 h-fit overflow-auto'>
+                    <section className='col-span-2 p-5 mt-5 h-fit overflow-auto'>
                         {ticker.stockEntries?.length ? (
                             <div>
                                 <table className='table-auto w-full'>
@@ -476,10 +470,19 @@ const Ticker = () => {
 
                 </div>
 
+                <div className="bg-black text-white rounded-xl p-5">
+                    <h3 className="text-3xl text-center">INSIGHTS</h3>
+                </div>
 
                 {/** Chart **/}
-                <section className='p-5 border-2 border-slate-300 rounded-xl shadow-md mt-5 bg-teal-50'>
-                    <Chart />
+                <section className='p-5 mt-5 lg:grid lg:grid-cols-2'>
+                    <div>
+                        <Chart credits={credits} creditsDates={creditsDates}
+                        />
+                    </div>
+                    <div>
+                        <DebitsChart debits={debits} debitsDates={debitsDates} />
+                    </div>
                 </section>
 
             </>

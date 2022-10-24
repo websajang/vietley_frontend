@@ -12,6 +12,8 @@ const PreviewTicker = ({ tickerName }) => {
                 <div className=''>
                     {ticker}
                 </div>
+
+
             </div>
         </Link>
     )

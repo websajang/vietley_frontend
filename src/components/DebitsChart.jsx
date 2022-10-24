@@ -19,7 +19,7 @@ ChartJS.register(
     Legend
 );
 
-const Chart = ({ credits, creditsDates }) => {
+const DebitsChart = ({ debits, debitsDates }) => {
 
     const options = {
         responsive: true,
@@ -29,19 +29,19 @@ const Chart = ({ credits, creditsDates }) => {
             },
             title: {
                 display: true,
-                text: 'Credits',
+                text: 'Debits',
             },
         },
     };
 
-    const labels = creditsDates;
+    const labels = debitsDates;
 
     const data = {
         labels,
         datasets: [
             {
-                label: 'Credits',
-                data: credits.map((data) => data),
+                label: 'Debits',
+                data: debits.map((data) => data),
                 backgroundColor: 'rgba(13, 148, 136)',
             },
         ],
@@ -52,4 +52,4 @@ const Chart = ({ credits, creditsDates }) => {
     )
 }
 
-export default Chart
+export default DebitsChart

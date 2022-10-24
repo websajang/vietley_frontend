@@ -4,7 +4,7 @@ import useTickers from "../hooks/useTickers";
 
 const Entry = ({ entry }) => {
     const { opened, callOrPut, buyOrSell, expiration, strike, qty, price, howIsEnded, closingDate, closingCost } = entry;
-    const { handleModalEditEntry, handleModalDeleteEntry, ticker, credits, debits, setCredits, setDebits, totalCredits, setTotalCredits, totalDebits, setTotalDebits, setCurrentStrike, setTotalContracts } = useTickers();
+    const { handleModalEditEntry, handleModalDeleteEntry, ticker, setCredits, setDebits, setCurrentStrike, setTotalContracts, setCreditsDates, setDebitsDates } = useTickers();
 
 
 
@@ -72,6 +72,22 @@ const Entry = ({ entry }) => {
         setCurrentStrike(strike)
         setTotalContracts(qty)
     }, [ticker])
+
+    /********************************************************************************************************/
+    /********************************************************************************************************/
+    /********************************************************************************************************/
+
+    /********************************************************************************************************/
+    /***************************************** CHARTS INFO   *************************************************/
+    /*********************************************************************************************************/
+    useEffect(() => {
+        setCreditsDates(current => [...current, opened.split('T')[0]])
+        if (closingDate != null) {
+            setDebitsDates(current => [...current, closingDate.split('T')[0]])
+        } else {
+            setDebitsDates(current => [...current, 'Not closed'])
+        }
+    }, [])
 
     /********************************************************************************************************/
     /********************************************************************************************************/

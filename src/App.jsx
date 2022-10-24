@@ -14,7 +14,6 @@ import NewTicker from './pages/NewTicker'
 import Ticker from './pages/Ticker'
 import EditTicker from './pages/EditTicker'
 import Docs from './pages/Docs'
-import Updates from './pages/Updates'
 
 function App() {
 
@@ -42,7 +41,6 @@ function App() {
                 <Route index element={<Tickers />} />
                 <Route path='create-ticker' element={<NewTicker />} />
                 <Route path='docs' element={<Docs />} />
-                <Route path='updates' element={<Updates />} />
                 {/** Place dynamic routes always at the end **/}
                 <Route path=':id' element={<Ticker />} />
                 <Route path='edit/:id' element={<EditTicker />} />
