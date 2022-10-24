@@ -4,6 +4,7 @@ import Alert from '../components/Alert'
 import axiosClient from '../config/axiosClient'
 import useAuth from '../hooks/useAuth'
 import logo from '/logo.png'
+import { Helmet } from 'react-helmet'
 
 const Login = () => {
 
@@ -52,7 +53,19 @@ const Login = () => {
 
     return (
 
+
         <div className='min-h-screen'>
+            {/** SEO **/}
+            <Helmet>
+                <meta
+                    name='The wheel options trading strategy tracker'
+                    description='Track your stock options with the wheel strategy. Trade options and track them to have a better overview of you strategy. Free and simple spreadsheet on the internet to safely save your trades.'
+                />
+                <meta
+                    name='The wheel options trading strategy tracker'
+                    description=''
+                />
+            </Helmet>
             {/** Title of the form **/}
             <img src={logo} width={250} height={250} alt="Logo" />
             <p>BETA v2.2</p>
