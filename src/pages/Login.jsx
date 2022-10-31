@@ -62,8 +62,8 @@ const Login = () => {
                     description='Track your stock options with the wheel strategy. Trade options and track them to have a better overview of you strategy. Free and simple spreadsheet on the internet to safely save your trades.'
                 />
                 <meta
-                    name='The wheel options trading strategy tracker'
-                    description=''
+                    name='keywords'
+                    description='stock, options, wheel, strategy, tracker, free'
                 />
             </Helmet>
             {/** Title of the form **/}
