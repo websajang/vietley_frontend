@@ -1,0 +1,10 @@
+https://www.vietley.com/
+https://www.vietley.com/register
+https://www.vietley.com/forgot-password
+https://www.vietley.com/forgot-password
+https://www.vietley.com/forgot-password
+https://www.vietley.com/confirm/tickers
+https://www.vietley.com/confirm/create-ticker
+https://www.vietley.com/confirm/docs
+https://www.vietley.com/:id
+https://www.vietley.com/edit/:id

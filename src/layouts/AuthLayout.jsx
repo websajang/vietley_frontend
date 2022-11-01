@@ -12,20 +12,20 @@ const AuthLayout = () => {
                 <div className='flex-1 lg:grid lg:grid-cols-3'>
                     <div className='text-center lg:text-start col-span-1 m-10 flex flex-col justify-around'>
                         <div className='mb-5'>
-                            <h1 className='text-2xl font-bold'>JOIN OPTIONS TRADING <br></br>
-                                COMMUNITY</h1>
+                            <h2 className='text-2xl font-bold'>JOIN OPTIONS TRADING <br></br>
+                                COMMUNITY</h2>
                             <p>Create an account on Vietley and start tracking<br></br>
                                 your option trades online.</p>
                         </div>
                         <div className='mb-5'>
-                            <h1 className='text-2xl font-bold '>THE WHEEL OPTIONS <br></br>
-                                STRATEGY</h1>
+                            <h2 className='text-2xl font-bold '>THE WHEEL OPTIONS <br></br>
+                                STRATEGY</h2>
                             <p>Learn about the wheel trading strategy to create an<br></br>
                                 extra income flow.</p>
                         </div>
                         <div className='mb-5'>
-                            <h1 className='text-2xl font-bold '>FREE ACCOUNT TIER  <br></br>
-                                FOREVER</h1>
+                            <h2 className='text-2xl font-bold '>FREE ACCOUNT TIER  <br></br>
+                                FOREVER</h2>
                             <p>Enjoy your account for free forever with all <br></br>
                                 the features you need.</p>
                         </div>
@@ -33,7 +33,9 @@ const AuthLayout = () => {
                     <div className='col-span-2'>
                         <img
                             src={Docs2}
-                            alt='empty-ticker'
+                            alt='Options tracker'
+                            title='Options tracker'
+                            loading='eager'
                             className='object-top rounded-xl border-4 my-10 shadow-xl'
                         />
                     </div>
